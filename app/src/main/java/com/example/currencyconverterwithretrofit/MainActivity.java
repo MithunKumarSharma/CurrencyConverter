@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String[] dropDownList = {"USD", "INR","EUR","NZD","GBP"};
+        //String[] dropDownList = {"USD", "INR","EUR","NZD","GBP"};
 
         mConvert = (Button) findViewById(R.id.button);
         mCurrencyToConvert = (EditText) findViewById(R.id.currency_to_be_converted);
@@ -35,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
         mConvertFromList = (Spinner) findViewById(R.id.convert_from);
         mConvertToList = (Spinner) findViewById(R.id.convert_to);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, dropDownList);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this, R.array.currencies, android.R.layout.simple_spinner_dropdown_item);
         mConvertFromList.setAdapter(adapter);
         mConvertToList.setAdapter(adapter);
 
